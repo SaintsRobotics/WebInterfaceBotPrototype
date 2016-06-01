@@ -1,4 +1,4 @@
-var socket = new WebSocket(window.url + ":1899");
+var socket = new WebSocket("ws://" + window.location.hostname + ":1899");
 /*var socket = {
 	send: function(string){
 		console.log("fake socket message : " + JSON.stringify(string));
@@ -13,6 +13,7 @@ function sendData(event){
 	socket.send(dataobj);
 }
 socket.onmessage = function(message){
+	console.log("recv: " + message.data);
 	var event = JSON.parse(message.data);
 	var line = events[event.name] || $("<div></div>")
 				.addClass("displayObject")

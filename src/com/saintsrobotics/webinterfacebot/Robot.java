@@ -19,13 +19,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	private TestWebSocket socket;
+	public  WebInterface webInterface;
 	private SimpleHTTPServer server;
     public void robotInit() {
     	server = new SimpleHTTPServer(8080, new File("./home/lvuser"));
     	server.start();
     	try {
-			socket = new TestWebSocket();
+			webInterface = new WebInterface();
+			webInterface.start();
+			System.out.println("socket up");
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
