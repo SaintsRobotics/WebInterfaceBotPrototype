@@ -9,7 +9,7 @@ import org.java_websocket.server.WebSocketServer;
 
 import java.util.Hashtable;
 import java.util.Map;
-import org.json.*;
+import org.json.JSONStringer;
 
 public class WebInterface extends WebSocketServer {
 	
