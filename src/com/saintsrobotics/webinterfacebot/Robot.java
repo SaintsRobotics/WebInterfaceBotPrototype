@@ -3,6 +3,7 @@ package com.saintsrobotics.webinterfacebot;
 
 import java.io.File;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 import org.simpleHTTPServer.SimpleHTTPServer;
 
@@ -21,8 +22,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	public  WebInterface webInterface;
 	private SimpleHTTPServer server;
+	public ArrayList<ChangeListener> listeners = new ArrayList<>();
     public void robotInit() {
-    	server = new SimpleHTTPServer(8080, new File("./home/lvuser"));
+    	server = new SimpleHTTPServer(8080, new File("./home/lvuser/html/index.html"));
     	server.start();
     	try {
 			webInterface = new WebInterface();
